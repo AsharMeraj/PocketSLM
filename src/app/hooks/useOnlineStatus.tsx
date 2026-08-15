@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const API_URL = "http://localhost:3001";
+const API_URL = "https://pocket-slm-backend.vercel.app";
 
 export function useOnlineStatus(): boolean {
   const [isOnline, setIsOnline] = useState(false);
