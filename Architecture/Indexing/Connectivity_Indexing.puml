@@ -1,0 +1,35 @@
+@startuml
+title Pocket SLM - Offline/Online Chat Sync Flow
+
+skinparam backgroundColor white
+
+skinparam activity {
+    BackgroundColor white
+    BorderColor black
+    FontSize 14
+    Padding 20
+}
+
+start
+
+:CHAT;
+
+:INDEXEDDB;
+
+if (Internet Available?) then (Yes)
+
+    :SYNC PENDING DATA;
+
+    :POSTGRESQL;
+
+else (No)
+
+    :MARK AS PENDING;
+
+    :WAIT FOR INTERNET;
+
+endif
+
+stop
+
+@enduml

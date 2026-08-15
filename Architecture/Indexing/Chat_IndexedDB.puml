@@ -1,0 +1,40 @@
+@startuml
+title Pocket SLM - Chat + IndexedDB Flow
+
+skinparam backgroundColor white
+skinparam activity {
+    BackgroundColor white
+    BorderColor black
+    FontSize 14
+    Padding 20
+}
+
+start
+
+:OPEN CHAT;
+
+if (Chat exists in IndexedDB?) then (Yes)
+
+    :LOAD CURRENT CHAT;
+    :SHOW MESSAGES;
+
+else (No)
+
+    :CREATE NEW CHAT;
+    :SHOW EMPTY CHAT;
+
+endif
+
+:USER SENDS MESSAGE;
+
+:SAVE MESSAGE TO INDEXEDDB;
+
+:AI RESPONSE;
+
+:SAVE AI RESPONSE TO INDEXEDDB;
+
+:UPDATE CHAT SCREEN;
+
+stop
+
+@enduml

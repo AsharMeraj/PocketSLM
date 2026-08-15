@@ -1,0 +1,50 @@
+@startuml
+title Pocket SLM - Frontend Flow
+
+skinparam backgroundColor white
+skinparam rectangle {
+    BackgroundColor white
+    BorderColor black
+    FontSize 14
+    Padding 20
+}
+
+rectangle "USER OPENS APP" as Open
+
+rectangle "CHAT SCREEN" as Chat
+
+rectangle "SEND MESSAGE" as Send
+
+rectangle "CURRENT CHAT" as Current
+
+rectangle "AI RESPONSE" as AI
+
+rectangle "OPEN SIDEBAR" as Sidebar
+
+rectangle "NEW CHAT" as NewChat
+
+rectangle "CHAT HISTORY" as History
+
+rectangle "SELECT CHAT" as Select
+
+rectangle "SETTINGS" as Settings
+
+Open --> Chat
+
+Chat --> Send
+Send --> Current
+Current --> AI
+AI --> Current
+
+Chat --> Sidebar
+
+Sidebar --> NewChat
+Sidebar --> History
+Sidebar --> Settings
+
+History --> Select
+Select --> Current
+
+NewChat --> Current
+
+@enduml

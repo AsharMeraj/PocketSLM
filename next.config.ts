@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const isAndroidBuild = process.env.BUILD_TARGET === 'android';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  output: 'export',
+  basePath: isAndroidBuild ? '/assets' : '',
+  assetPrefix: isAndroidBuild ? '/assets' : '',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

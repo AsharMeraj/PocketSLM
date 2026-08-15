@@ -1,0 +1,26 @@
+@startuml
+title Pocket SLM - Frontend UI
+
+skinparam componentStyle rectangle
+skinparam backgroundColor white
+
+actor User
+
+rectangle "Pocket SLM" {
+
+    rectangle "Chat" as Chat {
+        component "Message" as Message
+        component "AI" as AI
+    }
+
+    rectangle "Sidebar" as Sidebar {
+        component "New Chat" as NewChat
+        component "Chat History" as History
+        component "Settings" as Settings
+    }
+}
+
+User --> Chat
+User --> Sidebar
+
+@enduml

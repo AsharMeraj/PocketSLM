@@ -1,0 +1,49 @@
+@startuml
+title Pocket SLM - IndexedDB Programming Flow
+
+skinparam backgroundColor white
+
+skinparam rectangle {
+    BackgroundColor white
+    BorderColor black
+    FontSize 14
+    Padding 20
+}
+
+start
+
+:USE CHAT;
+
+:SAVE CHAT;
+
+:OPEN DB;
+
+if (Database Exists?) then (Yes)
+
+    :OPEN DATABASE;
+
+else (No)
+
+    :CREATE DATABASE;
+
+    :CREATE CHAT STORE;
+
+    :OPEN DATABASE;
+
+endif
+
+:START TRANSACTION;
+
+:CHAT OBJECT STORE;
+
+:PUT CHAT;
+
+:INDEXEDDB;
+
+:TRANSACTION COMPLETE;
+
+:RETURN SUCCESS;
+
+stop
+
+@enduml
